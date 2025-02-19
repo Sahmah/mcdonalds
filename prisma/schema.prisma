@@ -16,13 +16,13 @@ datasource db {
 model Restaurant {
   id             String         @id @default(uuid()) //@id = chave primaria e @default = valor padrão (uuid)
   name           String
-  slug           String
+  slug           String         @unique //slug = um nome para a url e para nunca se reperitir colca-se o @unique 
   description    String
   avatarImageUrl String
   coverImageUrl  String
   menuCategories MenuCategory[] //O restaurante tem várias categorias no menu
-  products       Product[]//O restaurante tem vários produtos
-  orders         Order[]//O restaurante tem vários pedidos
+  products       Product[] //O restaurante tem vários produtos
+  orders         Order[] //O restaurante tem vários pedidos
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt
 }
@@ -46,7 +46,7 @@ model Product {
   imageUrl       String
   ingredients    String[]
   orderProducts  OrderProduct[] //Tem vários pedidos do produto
-  restaurant     Restaurant     @relation(fields: [restaurantId], references: [id], onDelete: Cascade)//Se eu deletar o restaurante, eu tambem deleto o produto 
+  restaurant     Restaurant     @relation(fields: [restaurantId], references: [id], onDelete: Cascade) //Se eu deletar o restaurante, eu tambem deleto o produto 
   restaurantId   String
   menuCategory   MenuCategory   @relation(fields: [menuCategoryId], references: [id], onDelete: Cascade)
   menuCategoryId String
@@ -80,12 +80,13 @@ model OrderProduct {
 
 enum OrderStatus {
   PENDING //Pedido pendente
-  IN_PREPARATION//Pedido em preparação
-  FINISHED//Pedido finalizado
+  IN_PREPARATION //Pedido em preparação
+  FINISHED //Pedido finalizado
 }
 
 enum ConsumptionMethod {
   TAKEAWAY //Para a viagem
   DINE_IN //Para comer no local
 }
+
 //npx prisma formatv - formata o arquivo
