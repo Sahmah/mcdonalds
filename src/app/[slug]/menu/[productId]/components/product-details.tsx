@@ -28,7 +28,7 @@ interface ProductDetailsProps {
 const ProductDetails = ({ product }: ProductDetailsProps) => {
   const { toggleCart, addProduct } = useContext(CartContext);
   const [quantity, setQuantity] = useState<number>(1);
-  const handleDecreaseQuantity = () => {
+  const handleDecreaseQuantity = () => { //Função para diminuir a quantidade
     setQuantity((prev) => {
       if (prev === 1) {
         return 1;
@@ -36,8 +36,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
       return prev - 1;
     });
   };
-  const handleIncreaseQuantity = () => {
-    setQuantity((prev) => prev + 1);
+  const handleIncreaseQuantity = () => { //Função para aumentar a quantidade
+    setQuantity((prev) => prev + 1); //prev é o valor anterior
   };
   const handleAddToCart = () => {
     addProduct({
@@ -78,7 +78,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                 className="h-8 w-8 rounded-xl"
                 onClick={handleDecreaseQuantity}
               >
-                <ChevronLeftIcon />
+                <ChevronLeftIcon /> {/*ChevronLeftIcon é um ícone de seta para a esquerda*/}
               </Button>
               <p className="w-4">{quantity}</p>
               <Button
@@ -91,12 +91,12 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             </div>
           </div>
 
-          <ScrollArea className="h-full">
+          <ScrollArea className="h-full"> {/*ScrollArea é um componente de área de rolagem*/}
             {/* SOBRE */}
             <div className="mt-6 space-y-3">
               <h4 className="font-semibold">Sobre</h4>
               <p className="text-sm text-muted-foreground">
-                {product.description}
+                {product.description} {/*O product.description ta localizado no banco de dados (NeonConsole)*/}
               </p>
             </div>
 
@@ -125,3 +125,5 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 };
 
 export default ProductDetails;
+
+/*h-full é uma classe do tailwind usada para definir a altura do elemento*/
