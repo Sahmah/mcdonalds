@@ -124,6 +124,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   );
 };
 
+  
 export default ProductDetails;
 
 /*h-full é uma classe do tailwind usada para definir a altura do elemento*/
