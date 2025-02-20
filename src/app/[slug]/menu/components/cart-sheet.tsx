@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext } from "react"; //Importa o hook useContext do React
 
 import {
   Sheet,
@@ -33,3 +33,10 @@ const CartSheet = () => {
 };
 
 export default CartSheet;
+
+//O carrinho de compras pode ser acessado a partir de qualquer página do aplicativo.
+
+//O componente CartSheet é um componente funcional que exibe um modal com o conteúdo do carrinho de compras. 
+//Ele importa o contexto CartContext e utiliza os valores de isOpen, toggleCart e products. 
+//O componente retorna um modal com o título "Are you absolutely sure?" e uma descrição. 
+//Em seguida, ele exibe a lista de produtos do carrinho.

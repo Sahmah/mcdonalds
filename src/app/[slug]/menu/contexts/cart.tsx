@@ -3,7 +3,7 @@
 import { Product } from "@prisma/client";
 import { createContext, ReactNode, useState } from "react";
 
-interface CartProduct
+interface CartProduct 
   extends Pick<Product, "id" | "name" | "price" | "imageUrl"> {
   quantity: number;
 }
@@ -15,14 +15,14 @@ export interface ICartContext {
   addProduct: (product: CartProduct) => void;
 }
 
-export const CartContext = createContext<ICartContext>({
-  isOpen: false,
+export const CartContext = createContext<ICartContext>({ 
+  isOpen: false, //O carrinho de compras está fechado por padrão
   products: [],
   toggleCart: () => {},
   addProduct: () => {},
 });
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
+export const CartProvider = ({ children }: { children: ReactNode }) => { //Children é um tipo de dados que representa os elementos filhos de um componente React, que serão renderizados dentro do componente pai
   const [products, setProducts] = useState<CartProduct[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -61,3 +61,4 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     </CartContext.Provider>
   );
 };
+//CartProvider é um componente que fornece o contexto CartContext para seus componentes filhos.
