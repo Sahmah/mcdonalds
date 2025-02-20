@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 interface ProductHeaderProps {
-  product: Pick<Product, "name" | "imageUrl">;
+  product: Pick<Product, "name" | "imageUrl">; //Da interface de produtos, pega o nome e a imagem
 }
 
 const ProductHeader = ({ product }: ProductHeaderProps) => {

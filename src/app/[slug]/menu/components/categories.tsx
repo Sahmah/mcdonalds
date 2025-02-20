@@ -73,9 +73,9 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
       </ScrollArea>
 
       <h3 className="px-5 pt-2 font-semibold">{selectedCategory.name}</h3>
-      <Products products={selectedCategory.products} />
+      <Products products={selectedCategory.products} /> {/*Aqui é renderizado o componente Products*/}
     </div>
   );
 };
 
-export default RestaurantCategories;
+export default RestaurantCategories; //Como o RestaurantCategories é um client component, todos os componentes que ele renderizar tambem serao client components

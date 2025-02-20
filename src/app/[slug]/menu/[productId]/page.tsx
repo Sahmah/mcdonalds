@@ -6,11 +6,11 @@ import ProductDetails from "./components/product-details";
 import ProductHeader from "./components/product-header";
 
 interface ProductPageProps {
-  params: Promise<{ slug: string; productId: string }>;
+  params: Promise<{ slug: string; productId: string }>; //O comando Promise é utilizado para indicar que o valor é uma promessa de retorno
 }
 
 const ProductPage = async ({ params }: ProductPageProps) => {
-  const { slug, productId } = await params;
+  const { slug, productId } = await params; //await é utilizado para aguardar a resolução da promessa
   const product = await db.product.findUnique({
     where: { id: productId },
     include: {
@@ -23,7 +23,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
       },
     },
   });
-  if (!product) {
+  if (!product) { //Se não houver produto, retorna notFound
     return notFound();
   }
   if (product.restaurant.slug.toUpperCase() !== slug.toUpperCase()) {

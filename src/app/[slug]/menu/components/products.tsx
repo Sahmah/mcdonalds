@@ -46,3 +46,4 @@ const Products = ({ products }: ProductsProps) => {
 };
 
 export default Products;
+//Esta sendo renderizado dentro do restaurant categories
