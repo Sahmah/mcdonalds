@@ -162,3 +162,4 @@ const FinishOrderDialog = ({ open, onOpenChange }: FinishOrderDialogProps) => {
 };
 
 export default FinishOrderDialog;
+//Esse arquivo é onde fica o botão de finalizar o pedido que vai abrir um drawer com um formulário para o usuário preencher com seu nome e cpf para finalizar o pedido.
